@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-echo "<script>alert('Anda Telah Keluar Dari Login Sebagai Admin'); window.location = 'index.php'</script>";
+echo "<script>alert('SUCCESS ! You have successfully logged out'); window.location = 'index.php'</script>";
 ?>

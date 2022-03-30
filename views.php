@@ -10,7 +10,7 @@ if (isset($_GET['page'])) {
 	}
 }
 else {
-	require_once("pages/home.php");
+	return false;
 }
 
  ?>

@@ -29,7 +29,7 @@
 	            </div>
 
 	            <button type="submit" class="btn btn-success"> <i class="fa fa-save"></i> Save</button>
-	            <button type="reset" class="btn btn-warning"> <i class="fa fa-trash"></i> Reset</button>
+	            &nbsp;
 	            <a href="admin.php?page=hotel_data" class="btn btn-danger"> <i class="fa fa-times"></i> Cancel</a>
 	          </form>
 	        </div>

@@ -3,14 +3,14 @@
 ?>
 
 <div class="box">
-  <div class="box-header">
-    <h3 class="box-title">User Management ( <?php echo mysqli_num_rows($query); ?> Users )</h3>
+  <div class="box-header bg-primary">
+    <h3 class="box-title" style="color: white; font-weight: bold">User Management ( <?php echo mysqli_num_rows($query); ?> Users )</h3>
   </div><!-- /.box-header -->
   <div class="box-body">
     <?php if (isset($_SESSION['username'])): ?>
-  	  <a href="admin.php?page=user_add" style="margin-bottom: 10px;" class="btn btn-md btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;</i>Add New User</a>
+  	  <a href="admin.php?page=user_add" style="margin-bottom: 10px;" class="btn btn-md btn-success"><i class="fa fa-plus">&nbsp;&nbsp;</i>Add New User</a>
 		<?php endif; ?>
-		<table class="table table-bordered" id="tabel">
+		<table class="table table-bordered table-striped" id="tabel">
 			<thead>
 				<tr>
 				<th>NO</th>

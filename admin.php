@@ -22,7 +22,7 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="index.php" class="logo"><b>HOTEL </b>Feedback</a>
+        <a href="admin.php" class="logo"><b>HOTEL </b>Feedback</a>
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -49,15 +49,22 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN MENU</li>
             <li class="treeview <?php if(!isset($_GET['page'])) { echo "active"; } ?>">
-              <a href="index.php">
+              <a href="admin.php">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
               </a>
             </li>
-            <li class="treeview <?php if(isset($_GET['page']) && ($_GET['page'] == "hotel_data" || $_GET['page'] == "hotel_add")) { echo "active"; } ?>">
-              <a href="admin.php?page=hotel_data">
-                <i class="fa fa-file"></i> <span>Hotel List</span> 
+            <li class="treeview <?php if(isset($_GET['page']) && $_GET['page'] == "feedback_add") { echo "active"; } ?>">
+              <a href="admin.php?page=feedback_add">
+                <i class="fa fa-star"></i> <span>Give Feedback</span> 
               </a>
             </li>
+            <?php if(isset($_SESSION['level']) && $_SESSION['level'] == "admin") : ?>
+              <li class="treeview <?php if(isset($_GET['page']) && ($_GET['page'] == "hotel_data" || $_GET['page'] == "hotel_add")) { echo "active"; } ?>">
+                <a href="admin.php?page=hotel_data">
+                  <i class="fa fa-file"></i> <span>Hotel List</span> 
+                </a>
+              </li>
+            <?php endif; ?>
             <li class="treeview <?php if(isset($_GET['page']) && $_GET['page'] == "profile_data") { echo "active"; } ?>">
               <a href="admin.php?page=profile_data">
                 <i class="fa fa-user"></i> <span>User Profile</span> 
@@ -72,8 +79,11 @@
               </li>
             <?php else: ?>
               <li class="header">MENU ADMIN</li>
-              <li class="<?php if(isset($_GET['page']) && ($_GET['page'] == "user_data" || $_GET['page'] == "user_add")) { echo "active"; } ?>">
-              <a href="admin.php?page=user_data"><i class="fa fa-user text-warning"></i> User Management</a></li>
+              <?php if(isset($_SESSION['level']) && $_SESSION['level'] == "admin") : ?>
+                <li class="<?php if(isset($_GET['page']) && ($_GET['page'] == "user_data" || $_GET['page'] == "user_add")) { echo "active"; } ?>">
+                  <a href="admin.php?page=user_data"><i class="fa fa-user text-warning"></i> User Management</a>
+                </li>
+              <?php endif; ?>
               <li class="treeview">
                 <a href="logout.php">
                   <i class="fa fa-backward text-danger"></i> <span>Log Out</span> 

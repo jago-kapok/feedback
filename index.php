@@ -1,5 +1,5 @@
 <?php require_once('config/main.php'); 
-    $query = mysqli_query($conn, "SELECT AVG(DISTINCT(feedback.feedback_rating)) AS average_rating, hotel.hotel_name, hotel.hotel_location, hotel.hotel_desc FROM feedback JOIN hotel ON feedback.hotel_id = hotel.hotel_id GROUP BY feedback.hotel_id");
+    $query = mysqli_query($conn, "SELECT AVG(DISTINCT(feedback.feedback_rating)) AS average_rating, hotel.hotel_name, hotel.hotel_location, hotel.hotel_desc FROM feedback JOIN hotel ON feedback.hotel_id = hotel.hotel_id GROUP BY feedback.hotel_id ORDER BY average_rating DESC LIMIT 6");
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +91,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Feedback</h2>
-                    <h3 class="section-subheading text-muted">This is feedback section</h3>
+                    <h3 class="section-subheading text-muted">Here is the ratings from some users</h3>
                 </div>
                 <div class="row" style="margin-top: -30px">
                     <?php while($data = mysqli_fetch_array($query)) { ?>
@@ -107,7 +107,9 @@
                     <?php } ?>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+                    <div class="col-lg-8 mx-auto text-center">
+                        <a href="detail.php" class="btn btn-lg btn-info"><i class="fa fa-list"></i>&nbsp;&nbsp;View More</a>
+                    </div>
                 </div>
             </div>
         </section>

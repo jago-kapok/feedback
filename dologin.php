@@ -10,7 +10,7 @@ if (!$query || mysqli_num_rows($query) != 0) {
 	$data   = mysqli_fetch_array($query, MYSQLI_BOTH);
 
 	session_start();
-	$_SESSION['id'] 			= $data['user_id'];
+	$_SESSION['id'] 		= $data['user_id'];
 	$_SESSION['username'] 	= $data['user_name'];
 	$_SESSION['password'] 	= $data['user_password'];
 	$_SESSION['fullname'] 	= $data['user_fullname'];
